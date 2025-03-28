@@ -3,7 +3,7 @@ import ResultDisplay from "./components/ResultDisplay";
 const App = () => {
   return (
     <div>
-      <h2>Vote for Developers</h2>
+      <h2>Vote</h2>
       <Vote />
       <ResultDisplay />
     </div>
