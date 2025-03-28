@@ -7,7 +7,7 @@ const ResultDisplay = () => {
     <div>
       <hr />
       <p>
-        Yay: {votes.yay} Nay: {votes.nay} Neutral: {votes.neutral}
+        Yea: {votes.yea} Nay: {votes.nay} Neutral: {votes.neutral}
       </p>
     </div>
   );
