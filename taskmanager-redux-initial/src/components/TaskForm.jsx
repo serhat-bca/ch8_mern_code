@@ -1,7 +1,13 @@
+import { useDispatch } from "react-redux";
+import { add } from "../actions/taskActions";
+
 const TaskForm = () => {
+  const dispatch = useDispatch();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Task Submitted :", event.target.task.value);
+    dispatch(add(event.target.task.value));
     event.target.task.value = "";
   };
 

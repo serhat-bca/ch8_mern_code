@@ -1,4 +1,8 @@
+import { useDispatch } from "react-redux";
+import { toggle } from "../actions/taskActions";
+
 const Task = ({ task }) => {
+  const dispatch = useDispatch();
   return (
     <div>
       <span>{task.description}. </span>
@@ -7,7 +11,7 @@ const Task = ({ task }) => {
       </span>
       <span
         style={{ textDecoration: "underline", cursor: "pointer" }}
-        onClick={() => console.log(task.id)}
+        onClick={() => dispatch(toggle(task.id))}
       >
         {task.urgent ? "Make non-urgent" : "make urgent"}
       </span>
