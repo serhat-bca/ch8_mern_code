@@ -1,7 +1,12 @@
+import { useDispatch } from "react-redux";
+import { setFilter } from "../actions/filterActions";
+
 const FilterTask = () => {
+  const dispatch = useDispatch();
   const handleFilterChange = (event) => {
     const selectedValue = event.target.value;
     console.log("Selected Filter: ", selectedValue);
+    dispatch(setFilter(selectedValue));
   };
   return (
     <div>
