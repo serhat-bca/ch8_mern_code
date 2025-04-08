@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { voteYea, voteNay, voteNeutral } from "../actions/votingActions";
+import { voteYea, voteNay, voteNeutral } from "../reducers/votingReducer";
 
 const Vote = () => {
   const dispatch = useDispatch();
