@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
-
 const taskSlice = createSlice({
   name: "tasks",
   initialState: [],
   reducers: {
+    setInitialTasks: (state, action) => {
+      return action.payload;
+    },
     add: (state, action) => {
       const task = {
         id: Math.random().toString(36).slice(2, 11),
@@ -21,7 +22,7 @@ const taskSlice = createSlice({
     },
   },
 });
-export const { add, toggle } = taskSlice.actions;
+export const { add, toggle, setInitialTasks } = taskSlice.actions;
 export default taskSlice.reducer;
 // const taskReducer = (state = tasks, action) => {
 //   switch (action.type) {
