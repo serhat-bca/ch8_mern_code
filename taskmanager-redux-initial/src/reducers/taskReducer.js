@@ -1,15 +1,10 @@
-import {createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
-const tasks = [
-  { id: 1, description: "Finish the report", urgent: true },
-  { id: 2, description: "Buy Groceries", urgent: false },
-  { id: 3, description: "Call John", urgent: false },
-  { id: 4, description: "Pay Internet Bill", urgent: true },
-];
+
 
 const taskSlice = createSlice({
   name: "tasks",
-  initialState: tasks,
+  initialState: [],
   reducers: {
     add: (state, action) => {
       const task = {
@@ -23,19 +18,19 @@ const taskSlice = createSlice({
       return state.map((task) =>
         task.id === action.payload ? { ...task, urgent: !task.urgent } : task
       );
-    }
-  }
-})
-export const {add, toggle} = taskSlice.actions;
+    },
+  },
+});
+export const { add, toggle } = taskSlice.actions;
 export default taskSlice.reducer;
 // const taskReducer = (state = tasks, action) => {
 //   switch (action.type) {
 //     case "ADD": {
-      // const task = {
-      //   id: Math.random().toString(36).slice(2, 11),
-      //   description: action.payload,
-      //   urgent: false,
-      // };
+// const task = {
+//   id: Math.random().toString(36).slice(2, 11),
+//   description: action.payload,
+//   urgent: false,
+// };
 //       return [...state, task];
 //     }
 //     case "TOGGLE": {
@@ -47,4 +42,3 @@ export default taskSlice.reducer;
 //       return state;
 //   }
 // };
-
