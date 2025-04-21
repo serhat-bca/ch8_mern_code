@@ -8,12 +8,7 @@ const taskSlice = createSlice({
       return action.payload;
     },
     add: (state, action) => {
-      const task = {
-        id: Math.random().toString(36).slice(2, 11),
-        description: action.payload,
-        urgent: false,
-      };
-      state.push(task);
+      state.push(action.payload);
     },
     toggle: (state, action) => {
       return state.map((task) =>

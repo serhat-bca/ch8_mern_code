@@ -11,3 +11,8 @@ export const toggleOnDB = async (task) => {
   const res = await api.put(`/${task.id}`, task);
   return res.data;
 };
+
+export const addTaskToDB = async (task) => {
+  const res = await api.post("/", task);
+  return res.data;
+};
