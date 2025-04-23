@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { fetchTasks, addTaskToDB } from "../services/taskServices";
 
 const taskSlice = createSlice({
   name: "tasks",
@@ -17,6 +18,23 @@ const taskSlice = createSlice({
     },
   },
 });
+
+export const fetchDBStore = () => {
+  return async (dispatch) => {
+    // handle the db calls
+    const tasks = await fetchTasks();
+    // handle redux store updates
+    dispatch(setInitialTasks(tasks));
+  };
+};
+
+export const addDBTasks = (task) => {
+  return async (dispatch) => {
+    const newTask = await addTaskToDB(task);
+    dispatch(add(newTask));
+  }
+}
+
 export const { add, toggle, setInitialTasks } = taskSlice.actions;
 export default taskSlice.reducer;
 // const taskReducer = (state = tasks, action) => {

@@ -1,6 +1,5 @@
 import { useDispatch } from "react-redux";
-import { add } from "../reducers/taskReducer";
-import { addTaskToDB } from "../services/taskServices";
+import { addDBTasks } from "../reducers/taskReducer";
 
 const TaskForm = () => {
   const dispatch = useDispatch();
@@ -8,11 +7,12 @@ const TaskForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("Task Submitted :", event.target.task.value);
-    const addedTask = await addTaskToDB({
+    const addedTask = {
       description: event.target.task.value,
       urgent: false,
-    });
-    dispatch(add(addedTask));
+    };
+    dispatch(addDBTasks(addedTask));
+    // dispatch(add(addedTask));
     event.target.task.value = "";
   };
 
